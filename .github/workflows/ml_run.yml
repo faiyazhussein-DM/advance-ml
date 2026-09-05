@@ -7,6 +7,11 @@ jobs:
     runs-on: ubuntu-latest # runs the workflow on the latest ubuntu version
     container:
       image: jupyter/scipy-notebook:latest
+
+     # Required to allow checkout@v4 to use Node 20 internally
+    env:
+      ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4 # uses the checkout action to checkout the code
